@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SolarShield V2: Advanced Space Weather System Design */
+
+@layer base {
+  :root {
+    /* Futuristic Deep Space Colors */
+    --background: 221 100% 4%;
+    --foreground: 213 31% 91%;
+    
+    /* Primary Electric Blue */
+    --primary: 194 100% 50%;
+    --primary-foreground: 221 100% 4%;
+    
+    /* Secondary Solar Plasma Orange */
+    --secondary: 14 100% 60%;
+    --secondary-foreground: 221 100% 4%;
+    
+    /* Accent Neon Cyan */
+    --accent: 180 100% 50%;
+    --accent-foreground: 221 100% 4%;
+    
+    /* Muted Glass Elements */
+    --muted: 221 39% 8%;
+    --muted-foreground: 213 31% 71%;
+    
+    /* Card Glass Morphism */
+    --card: 221 39% 6%;
+    --card-foreground: 213 31% 91%;
+    
+    /* Interactive Elements */
+    --popover: 221 39% 6%;
+    --popover-foreground: 213 31% 91%;
+    
+    /* Holographic Borders */
+    --border: 194 100% 30%;
+    --input: 221 39% 12%;
+    --ring: 194 100% 50%;
+    
+    /* Status Colors with Glow */
+    --destructive: 0 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --warning: 39 100% 50%;
+    --warning-foreground: 221 100% 4%;
+    --success: 120 100% 50%;
+    --success-foreground: 221 100% 4%;
+    
+    /* Advanced Gradient Definitions */
+    --gradient-space: linear-gradient(135deg, hsl(221, 100%, 2%) 0%, hsl(217, 100%, 8%) 25%, hsl(214, 100%, 15%) 50%, hsl(220, 100%, 10%) 100%);
+    --gradient-solar: linear-gradient(90deg, hsl(14, 100%, 50%) 0%, hsl(25, 100%, 55%) 25%, hsl(39, 100%, 60%) 75%, hsl(14, 100%, 50%) 100%);
+    --gradient-aurora: linear-gradient(45deg, hsl(194, 100%, 50%) 0%, hsl(260, 100%, 65%) 25%, hsl(280, 100%, 70%) 50%, hsl(120, 100%, 50%) 75%, hsl(194, 100%, 50%) 100%);
+    --gradient-plasma: linear-gradient(270deg, hsl(300, 100%, 50%) 0%, hsl(194, 100%, 50%) 50%, hsl(14, 100%, 60%) 100%);
+    
+    /* Enhanced Glow Effects */
+    --glow-primary: 0 0 10px hsl(194, 100%, 50%), 0 0 20px hsl(194, 100%, 50%), 0 0 30px hsl(194, 100%, 50%);
+    --glow-secondary: 0 0 10px hsl(14, 100%, 60%), 0 0 20px hsl(14, 100%, 60%), 0 0 30px hsl(14, 100%, 60%);
+    --glow-warning: 0 0 10px hsl(0, 100%, 60%), 0 0 20px hsl(0, 100%, 60%), 0 0 30px hsl(0, 100%, 60%);
+    --glow-success: 0 0 10px hsl(120, 100%, 50%), 0 0 20px hsl(120, 100%, 50%), 0 0 30px hsl(120, 100%, 50%);
+    
+    /* Glass Morphism Effects */
+    --glass-background: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-backdrop: blur(20px) saturate(180%);
+    
+    /* Particle Animation Variables */
+    --particle-speed: 20s;
+    --particle-opacity: 0.6;
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--gradient-space);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    @apply bg-background text-foreground;
+  }
+
+  /* Futuristic Background Animation */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+      radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 40% 80%, rgba(57, 255, 20, 0.05) 0%, transparent 50%);
+    animation: cosmic-drift 30s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@layer components {
+  /* Particle Field Animation */
+  @keyframes cosmic-drift {
+    0%, 100% { 
+      transform: translate(0, 0) rotate(0deg);
+      opacity: 0.3;
+    }
+    25% { 
+      transform: translate(2%, -1%) rotate(1deg);
+      opacity: 0.5;
+    }
+    50% { 
+      transform: translate(-1%, 2%) rotate(-1deg);
+      opacity: 0.4;
+    }
+    75% { 
+      transform: translate(-2%, -2%) rotate(0.5deg);
+      opacity: 0.6;
+    }
+  }
+
+  /* Glass Morphism Base Classes */
+  .glass-card {
+    background: var(--glass-background);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .holographic-border {
+    border: 2px solid transparent;
+    background: linear-gradient(var(--glass-background), var(--glass-background)) padding-box,
+                var(--gradient-aurora) border-box;
+    animation: border-glow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes border-glow {
+    0% { box-shadow: 0 0 5px hsl(194, 100%, 50%); }
+    100% { box-shadow: 0 0 20px hsl(194, 100%, 50%), 0 0 30px hsl(194, 100%, 50%); }
+  }
+
+  /* Futuristic Typography */
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+
+  .font-space-mono {
+    font-family: 'Space Mono', monospace;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 10px currentColor;
+  }
+
+  .text-neon {
+    color: hsl(194, 100%, 50%);
+    text-shadow: 
+      0 0 5px hsl(194, 100%, 50%),
+      0 0 10px hsl(194, 100%, 50%),
+      0 0 15px hsl(194, 100%, 50%);
+  }
+
+  /* Pulsing Animations */
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulse-glow {
+    0% { 
+      box-shadow: var(--glow-primary);
+      transform: scale(1);
+    }
+    100% { 
+      box-shadow: var(--glow-primary), 0 0 40px hsl(194, 100%, 50%);
+      transform: scale(1.02);
+    }
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* Data Counter Animation */
+  .counter-animate {
+    display: inline-block;
+    transition: all 0.3s ease-out;
+  }
+
+  /* Hexagonal Data Containers */
+  .hexagon-data-container {
+    position: relative;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    border-radius: 0.5rem;
+  }
+
+  /* Advanced Button Styles */
+  .btn-holographic {
+    background: var(--glass-background);
+    backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-holographic::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-holographic:hover::before {
+    left: 100%;
+  }
+
+  .btn-holographic:hover {
+    box-shadow: var(--glow-primary);
+    border-color: hsl(194, 100%, 50%);
+    transform: translateY(-2px);
+  }
+}
